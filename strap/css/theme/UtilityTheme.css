@@ -1,0 +1,126 @@
+/* Additional Components and Utility Theme */
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip-text {
+    visibility: hidden;
+    background-color: var(--color-gray-800);
+    color: var(--color-white);
+    text-align: center;
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    position: absolute;
+    z-index: var(--z-index-tooltip);
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+  
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Carousel */
+  .carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-inner {
+    display: flex;
+    transition: transform var(--transition-normal);
+  }
+  
+  .carousel-item {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+  
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--color-white);
+    border: none;
+    padding: var(--spacing-sm);
+    cursor: pointer;
+  }
+  
+  .carousel-control-prev {
+    left: 0;
+  }
+  
+  .carousel-control-next {
+    right: 0;
+  }
+  
+  /* Modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: var(--z-index-modal);
+  }
+  
+  .modal-content {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-xl);
+    max-width: 90%;
+    width: 500px;
+    padding: var(--spacing-lg);
+  }
+  
+  /* Spinner */
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--color-primary-light);
+    border-top: 3px solid var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Utility Classes */
+  .shadow-sm { box-shadow: var(--shadow-sm); }
+  .shadow-md { box-shadow: var(--shadow-md); }
+  .shadow-lg { box-shadow: var(--shadow-lg); }
+  
+  .rounded-sm { border-radius: var(--border-radius-sm); }
+  .rounded-md { border-radius: var(--border-radius-md); }
+  .rounded-lg { border-radius: var(--border-radius-lg); }
+  .rounded-full { border-radius: var(--border-radius-full); }
+  
+  .text-primary { color: var(--color-primary); }
+  .text-secondary { color: var(--color-secondary); }
+  .text-success { color: var(--color-success); }
+  .text-error { color: var(--color-error); }
+  .text-warning { color: var(--color-warning); }
+  .text-info { color: var(--color-info); }
+  
+  .bg-primary { background-color: var(--color-primary); }
+  .bg-secondary { background-color: var(--color-secondary); }
+  .bg-success { background-color: var(--color-success); }
+  .bg-error { background-color: var(--color-error); }
+  .bg-warning { background-color: var(--color-warning); }
+  .bg-info { background-color: var(--color-info); }

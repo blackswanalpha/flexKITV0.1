@@ -1,0 +1,210 @@
+/* Theme Stylesheet */
+
+/* Global Variables */
+:root {
+    /* Color Palette */
+    --color-primary: #007bff;
+    --color-secondary: #6c757d;
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+    --color-light: #f8f9fa;
+    --color-dark: #343a40;
+    
+    /* Neutral Colors */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-100: #f8f9fa;
+    --color-gray-200: #e9ecef;
+    --color-gray-300: #dee2e6;
+    --color-gray-400: #ced4da;
+    --color-gray-500: #adb5bd;
+    --color-gray-600: #6c757d;
+    --color-gray-700: #495057;
+    --color-gray-800: #343a40;
+    --color-gray-900: #212529;
+
+    /* Typography */
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    /* Font Sizes */
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-sm: 0.875rem;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    /* Border Radius */
+    --border-radius-sm: 0.2rem;
+    --border-radius-md: 0.25rem;
+    --border-radius-lg: 0.3rem;
+    --border-radius-xl: 0.5rem;
+
+    /* Shadows */
+    --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --box-shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+    /* Transitions */
+    --transition-speed-fast: 0.2s;
+    --transition-speed-normal: 0.3s;
+    --transition-speed-slow: 0.5s;
+
+    /* Z-Index Layers */
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1020;
+    --z-index-fixed: 1030;
+    --z-index-modal-backdrop: 1040;
+    --z-index-modal: 1050;
+    --z-index-popover: 1060;
+    --z-index-tooltip: 1070;
+}
+
+/* Reset and Base Styles */
+*, 
+*::before, 
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-sans-serif);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    color: var(--color-gray-900);
+    background-color: var(--color-white);
+}
+
+/* Typography */
+.text-display-1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.text-display-2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.text-heading {
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+}
+
+.text-subtitle {
+    color: var(--color-gray-600);
+    font-weight: 400;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-base);
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-speed-fast) ease-in-out;
+}
+
+.btn-primary {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 80%, black);
+    border-color: color-mix(in srgb, var(--color-primary) 80%, black);
+}
+
+.btn-secondary {
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+.btn-secondary:hover {
+    background-color: color-mix(in srgb, var(--color-secondary) 80%, black);
+    border-color: color-mix(in srgb, var(--color-secondary) 80%, black);
+}
+
+/* Card Styles */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: var(--color-white);
+    background-clip: border-box;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-sm);
+}
+
+.card-header {
+    padding: var(--spacing-md);
+    margin-bottom: 0;
+    background-color: var(--color-gray-100);
+    border-bottom: 1px solid var(--color-gray-300);
+}
+
+/* Form Styles */
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-gray-700);
+    background-color: var(--color-white);
+    background-clip: padding-box;
+    border: 1px solid var(--color-gray-400);
+    border-radius: var(--border-radius-md);
+    transition: border-color var(--transition-speed-fast) ease-in-out, box-shadow var(--transition-speed-fast) ease-in-out;
+}
+
+.form-control:focus {
+    color: var(--color-gray-700);
+    background-color: var(--color-white);
+    border-color: var(--color-primary);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    .text-display-1 {
+        font-size: 2.5rem;
+    }
+    .text-display-2 {
+        font-size: 2rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
+}

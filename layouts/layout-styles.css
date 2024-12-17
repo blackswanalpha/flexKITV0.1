@@ -1,0 +1,211 @@
+/* Layout System Global Styles */
+:root {
+    /* Color Palette */
+    --color-primary: #3498db;
+    --color-secondary: #2ecc71;
+    --color-accent: #e74c3c;
+    --color-background: #f4f4f4;
+    --color-text: #333;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Typography */
+    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    /* Transitions */
+    --transition-speed-fast: 0.2s;
+    --transition-speed-medium: 0.3s;
+    --transition-speed-slow: 0.5s;
+
+    /* Shadows */
+    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Base Layout Styles */
+.linear-layout,
+.relative-layout,
+.frame-layout,
+.constraint-layout,
+.table-layout,
+.gridview-layout {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+}
+
+/* Linear Layout */
+.linear-layout {
+    display: flex;
+    transition: all var(--transition-speed-fast) ease;
+}
+
+.linear-layout.horizontal {
+    flex-direction: row;
+}
+
+.linear-layout.vertical {
+    flex-direction: column;
+}
+
+.linear-layout.horizontal > * {
+    margin-right: var(--spacing-sm);
+}
+
+.linear-layout.vertical > * {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Relative Layout */
+.relative-layout {
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+    background-color: var(--color-background);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.relative-layout > * {
+    position: absolute;
+    transition: all var(--transition-speed-medium) ease;
+}
+
+/* Frame Layout */
+.frame-layout {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+}
+
+.frame-layout > * {
+    transition: transform var(--transition-speed-fast) ease;
+}
+
+.frame-layout > *:hover {
+    transform: scale(1.02);
+}
+
+/* Constraint Layout */
+.constraint-layout {
+    display: grid;
+    gap: var(--spacing-md);
+    background-color: var(--color-background);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+}
+
+/* Table Layout */
+.table-layout {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-layout .table-row {
+    display: table-row;
+    transition: background-color var(--transition-speed-fast) ease;
+}
+
+.table-layout .table-row:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-layout .table-row:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.table-layout .table-cell {
+    display: table-cell;
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.table-layout .table-row.header {
+    font-weight: bold;
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Grid View Layout */
+.gridview-layout {
+    display: grid;
+    gap: var(--spacing-md);
+    background-color: var(--color-background);
+    padding: var(--spacing-md);
+}
+
+.gridview-layout .grid-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    padding: var(--spacing-md);
+    transition: all var(--transition-speed-fast) ease;
+}
+
+.gridview-layout .grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .linear-layout.horizontal {
+        flex-direction: column;
+    }
+
+    .linear-layout.horizontal > * {
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .gridview-layout {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+/* Accessibility and Focus States */
+*:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Responsive Typography */
+html {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

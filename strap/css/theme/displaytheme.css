@@ -1,0 +1,409 @@
+/* Data Display Components Theme - Continued */
+
+/* Icons */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon-small {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .icon-medium {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .icon-large {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  /* Material Icons */
+  .material-icon {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Icon Colors */
+  .icon-primary {
+    color: var(--color-primary);
+  }
+  
+  .icon-secondary {
+    color: var(--color-secondary);
+  }
+  
+  .icon-success {
+    color: var(--color-success);
+  }
+  
+  .icon-error {
+    color: var(--color-error);
+  }
+  
+  .icon-warning {
+    color: var(--color-warning);
+  }
+  
+  .icon-info {
+    color: var(--color-info);
+  }
+  
+  /* Tooltip */
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+  }
+  
+  .tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    z-index: var(--z-index-tooltip);
+    background-color: var(--color-gray-800);
+    color: var(--color-white);
+    text-align: center;
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+  
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .tooltip-top {
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .tooltip-bottom {
+    top: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .tooltip-left {
+    right: 125%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .tooltip-right {
+    left: 125%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Typography Variations */
+  .typography-h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -0.01562em;
+    margin-bottom: 0.5rem;
+  }
+  
+  .typography-h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: -0.00833em;
+    margin-bottom: 0.5rem;
+  }
+  
+  .typography-h3 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0em;
+    margin-bottom: 0.5rem;
+  }
+  
+  .typography-h4 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.00735em;
+    margin-bottom: 0.5rem;
+  }
+  
+  .typography-h5 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  
+  .typography-h6 {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  
+  .typography-subtitle1 {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: 0.00938em;
+  }
+  
+  .typography-subtitle2 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.57;
+    letter-spacing: 0.00714em;
+  }
+  
+  .typography-body1 {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+  }
+  
+  .typography-body2 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+  }
+  
+  .typography-button {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+  }
+  
+  .typography-caption {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.66;
+    letter-spacing: 0.03333em;
+  }
+  
+  .typography-overline {
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 2.66;
+    letter-spacing: 0.08333em;
+    text-transform: uppercase;
+  }
+  
+  /* Text Alignment */
+  .text-left { text-align: left; }
+  .text-center { text-align: center; }
+  .text-right { text-align: right; }
+  
+  /* Font Weights */
+  .font-light { font-weight: 300; }
+  .font-regular { font-weight: 400; }
+  .font-medium { font-weight: 500; }
+  .font-bold { font-weight: 700; }
+  
+  /* Text Transform */
+  .text-uppercase { text-transform: uppercase; }
+  .text-lowercase { text-transform: lowercase; }
+  .text-capitalize { text-transform: capitalize; }
+
+
+  /* Data Display Components Theme */
+
+/* Avatar Styles */
+.avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-white);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.avatar-small {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.avatar-large {
+    width: 4rem;
+    height: 4rem;
+}
+
+/* Badge Styles */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.badge-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.badge-success {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.badge-warning {
+    background-color: var(--color-warning);
+    color: var(--color-black);
+}
+
+.badge-danger {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
+
+/* Chip Styles */
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-full);
+    font-size: 0.875rem;
+    background-color: var(--color-gray-200);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    cursor: default;
+}
+
+.chip-deletable {
+    cursor: pointer;
+}
+
+.chip-deletable:hover {
+    background-color: var(--color-gray-300);
+    transform: scale(1.02);
+}
+
+.chip-deletable .chip-delete-icon {
+    margin-left: var(--spacing-xs);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.chip-deletable .chip-delete-icon:hover {
+    opacity: 1;
+}
+
+/* Divider Styles */
+.divider {
+    height: 1px;
+    background-color: var(--color-gray-300);
+    margin: var(--spacing-md) 0;
+    border: none;
+}
+
+.divider-vertical {
+    width: 1px;
+    height: 100%;
+    background-color: var(--color-gray-300);
+}
+
+.divider-light {
+    background-color: var(--color-gray-200);
+}
+
+.divider-dark {
+    background-color: var(--color-gray-400);
+}
+
+/* List Styles */
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.list-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--color-gray-200);
+    transition: 
+        background-color var(--transition-fast),
+        transform var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-item:hover {
+    background-color: var(--color-gray-100);
+    transform: translateX(5px);
+}
+
+.list-item-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* Responsive Considerations */
+@media screen and (max-width: 768px) {
+    .avatar-large {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .badge {
+        font-size: 0.7rem;
+    }
+
+    .chip {
+        font-size: 0.8rem;
+        padding: var(--spacing-xs) var(--spacing-xs);
+    }
+}

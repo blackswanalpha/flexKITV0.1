@@ -1,0 +1,144 @@
+/* Color Utilities Stylesheet */
+
+
+
+/* Background Color Utilities */
+.bg-primary { 
+    background-color: var(--primary-color); 
+    color: white;
+}
+.bg-secondary { 
+    background-color: var(--secondary-color); 
+    color: white;
+}
+.bg-success { 
+    background-color: var(--success-color); 
+    color: white;
+}
+.bg-danger { 
+    background-color: var(--danger-color); 
+    color: white;
+}
+.bg-warning { 
+    background-color: var(--warning-color); 
+    color: white;
+}
+.bg-info { 
+    background-color: var(--info-color); 
+    color: white;
+}
+.bg-light { 
+    background-color: var(--light-color); 
+    color: #212529;
+}
+.bg-dark { 
+    background-color: var(--dark-color); 
+    color: white;
+}
+.bg-white { 
+    background-color: var(--white-color); 
+    color: #212529;
+}
+.bg-black { 
+    background-color: var(--black-color); 
+    color: white;
+}
+
+/* Text Color Utilities */
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.text-success { color: var(--success-color); }
+.text-danger { color: var(--danger-color); }
+.text-warning { color: var(--warning-color); }
+.text-info { color: var(--info-color); }
+.text-light { color: var(--light-color); }
+.text-dark { color: var(--dark-color); }
+.text-white { color: var(--white-color); }
+.text-black { color: var(--black-color); }
+
+/* Hover State Color Utilities */
+.bg-primary-hover:hover { 
+    background-color: color-mix(in srgb, var(--primary-color) 80%, black); 
+    transition: background-color 0.3s ease;
+}
+.bg-secondary-hover:hover { 
+    background-color: color-mix(in srgb, var(--secondary-color) 80%, black); 
+    transition: background-color 0.3s ease;
+}
+.bg-success-hover:hover { 
+    background-color: color-mix(in srgb, var(--success-color) 80%, black); 
+    transition: background-color 0.3s ease;
+}
+.bg-danger-hover:hover { 
+    background-color: color-mix(in srgb, var(--danger-color) 80%, black); 
+    transition: background-color 0.3s ease;
+}
+.bg-warning-hover:hover { 
+    background-color: color-mix(in srgb, var(--warning-color) 80%, black); 
+    transition: background-color 0.3s ease;
+}
+.bg-info-hover:hover { 
+    background-color: color-mix(in srgb, var(--info-color) 80%, black); 
+    transition: background-color 0.3s ease;
+}
+
+/* Gradient Background Utilities */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary-color), color-mix(in srgb, var(--primary-color) 80%, white));
+    color: white;
+}
+.bg-gradient-secondary {
+    background: linear-gradient(135deg, var(--secondary-color), color-mix(in srgb, var(--secondary-color) 80%, white));
+    color: white;
+}
+.bg-gradient-success {
+    background: linear-gradient(135deg, var(--success-color), color-mix(in srgb, var(--success-color) 80%, white));
+    color: white;
+}
+.bg-gradient-danger {
+    background: linear-gradient(135deg, var(--danger-color), color-mix(in srgb, var(--danger-color) 80%, white));
+    color: white;
+}
+
+/* Opacity Variations */
+.bg-primary-10 { 
+    background-color: color-mix(in srgb, var(--primary-color) 10%, transparent); 
+}
+.bg-secondary-10 { 
+    background-color: color-mix(in srgb, var(--secondary-color) 10%, transparent); 
+}
+.bg-success-10 { 
+    background-color: color-mix(in srgb, var(--success-color) 10%, transparent); 
+}
+.bg-danger-10 { 
+    background-color: color-mix(in srgb, var(--danger-color) 10%, transparent); 
+}
+
+/* Border Color Utilities */
+.border-primary { border-color: var(--primary-color); }
+.border-secondary { border-color: var(--secondary-color); }
+.border-success { border-color: var(--success-color); }
+.border-danger { border-color: var(--danger-color); }
+.border-warning { border-color: var(--warning-color); }
+.border-info { border-color: var(--info-color); }
+.border-light { border-color: var(--light-color); }
+.border-dark { border-color: var(--dark-color); }
+
+/* Responsive Color Text Contrast */
+.text-contrast-light { 
+    color: white; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+.text-contrast-dark { 
+    color: #212529; 
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+}
+
+/* Print-friendly Color Utilities */
+@media print {
+    .bg-primary, .bg-secondary, .bg-success, .bg-danger, 
+    .bg-warning, .bg-info, .bg-dark {
+        background-color: transparent !important;
+        color: black !important;
+    }
+}

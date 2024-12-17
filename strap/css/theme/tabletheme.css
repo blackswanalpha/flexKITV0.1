@@ -1,0 +1,126 @@
+/* Base Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-primary, Arial, sans-serif);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Table Head Styles */
+.table-head {
+    background-color: var(--color-gray-100);
+    border-bottom: 2px solid var(--color-gray-300);
+}
+
+.table-head .table-cell {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.5px;
+}
+
+/* Table Row Styles */
+.table-row {
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.table-row:hover {
+    background-color: var(--color-gray-50);
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+/* Table Cell Styles */
+.table-cell {
+    padding: var(--spacing-sm);
+    text-align: left;
+    vertical-align: middle;
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+}
+
+/* Alternating Row Colors */
+.table-row:nth-child(even) {
+    background-color: var(--color-gray-25);
+}
+
+/* Responsive Considerations */
+@media screen and (max-width: 768px) {
+    .table,
+    .table-head,
+    .table-row,
+    .table-cell {
+        display: block;
+    }
+
+    .table-head {
+        display: none; /* Hide traditional header */
+    }
+
+    .table-row {
+        margin-bottom: var(--spacing-sm);
+        border: 1px solid var(--color-gray-200);
+        border-radius: 4px;
+    }
+
+    .table-cell {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--color-gray-100);
+    }
+
+    .table-cell::before {
+        content: attr(data-label);
+        font-weight: 600;
+        margin-right: var(--spacing-sm);
+        color: var(--color-text-secondary);
+    }
+
+    .table-cell:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Scrollable Table on Small Screens */
+@media screen and (max-width: 480px) {
+    .table {
+        overflow-x: auto;
+        display: block;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Accessibility Enhancements */
+.table-cell:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+}
+
+/* Optional: Sorting Indicator Styles */
+.table-head .sortable {
+    cursor: pointer;
+    position: relative;
+    padding-right: 20px;
+}
+
+.table-head .sortable::after {
+    content: '⇅';
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-gray-300);
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+.table-head .sortable:hover::after {
+    opacity: 1;
+}

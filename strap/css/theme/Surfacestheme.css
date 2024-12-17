@@ -1,0 +1,147 @@
+/* Surfaces and Navigation Components Theme */
+
+/* Accordion */
+.accordion {
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--border-radius-sm);
+  }
+  
+  .accordion-item {
+    border-bottom: 1px solid var(--color-gray-300);
+  }
+  
+  .accordion-header {
+    padding: var(--spacing-md);
+    background-color: var(--color-gray-100);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .accordion-content {
+    padding: var(--spacing-md);
+    display: none;
+  }
+  
+  .accordion-content-open {
+    display: block;
+  }
+  
+  /* App Bar */
+  .app-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-index-overlay);
+  }
+  
+  /* Card */
+  .card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  
+  .card-header {
+    padding: var(--spacing-md);
+    background-color: var(--color-gray-100);
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+  
+  .card-content {
+    padding: var(--spacing-md);
+  }
+  
+  .card-actions {
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid var(--color-gray-200);
+  }
+  
+  /* Navigation Components */
+  .bottom-navigation {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-sm) 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .bottom-navigation-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-gray-600);
+    cursor: pointer;
+  }
+  
+  .bottom-navigation-item-active {
+    color: var(--color-primary);
+  }
+  
+  /* Breadcrumbs */
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .breadcrumb-separator {
+    margin: 0 var(--spacing-sm);
+    color: var(--color-gray-500);
+  }
+  
+  /* Drawer/Sidebar */
+  .drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-lg);
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+    z-index: var(--z-index-modal);
+  }
+  
+  .drawer-open {
+    transform: translateX(0);
+  }
+  
+  /* Tabs */
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-gray-300);
+  }
+  
+  .tab {
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition-fast);
+  }
+  
+  .tab-active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
