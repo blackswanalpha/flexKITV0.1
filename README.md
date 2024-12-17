@@ -1,29 +1,26 @@
-Layout Framework
-Overview
-The Layout Framework is a versatile and extensible JavaScript library designed to help developers create complex web layouts using a combination of container, row, and column components. This framework facilitates the integration of various UI components, such as organisms, molecules, and atoms, allowing for a highly modular and maintainable codebase. The framework also supports custom components and includes an event manager for handling custom events.
 
+
+
+README: Web Layout Framework
+Introduction
+Welcome to our Web Layout Framework! This framework is designed to simplify the process of building responsive and dynamic web pages. It provides a set of tools and components that enable developers to create complex layouts with ease.
+
+Key Features
+Container-Based Layouts: Easily create and manage container-based layouts like grid, flex, and more.
+Custom Components: Integrate your custom components seamlessly into the framework.
+Responsive Design: Built with responsiveness in mind, ensuring your layouts look great on all devices.
+Chainable Structure: Utilize chainable methods to add and configure components in a fluid and readable manner.
+Event Manager: Manage and handle events across components efficiently.
+Getting Started
 Installation
-Clone the repository:
+To include this framework in your project, simply add the following script and stylesheet references to your HTML:
 
-bash
+html
 Copy code
-git clone https://github.com/yourusername/layout-framework.git
-Navigate to the project directory:
-
-bash
-Copy code
-cd layout-framework
-Ensure you have a web server to serve the files. You can use simple HTTP servers like http-server or live-server for development purposes.
-
-Structure
-The framework is structured as follows:
-
-Container: The outermost component that holds rows.
-Row: Holds columns and can be styled to control layout.
-Column (ColComponent): Holds the actual content, including organisms, molecules, and atoms. Supports layout options.
-Usage
-HTML Structure
-Include the necessary CSS and JavaScript files in your HTML file:
+<link rel="stylesheet" href="css/framework.css">
+<script src="js/framework.js"></script>
+Basic Usage
+Here’s a basic example to get you started with creating a simple layout:
 
 html
 Copy code
@@ -32,297 +29,59 @@ Copy code
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="css/typography.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/grid.css">
+    <title>Web Layout Framework Example</title>
+    <link rel="stylesheet" href="css/framework.css">
 </head>
 <body>
     <div id="app"></div>
-    <script type="module" src="main.js"></script>
+    <script src="js/framework.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = new LayoutFramework('#app');
+
+            // Add GridView Layout with 4 columns
+            app.addLayout('gridview', { columns: 4 })
+                .addComponentOrganisms('navbar', { items: ['Home', 'About', 'Contact'] })
+                .addComponentMolecule('card', { title: 'Welcome', body: 'This is the homepage' })
+                .addComponentAtoms('button', { label: 'Click Me' });
+        });
+    </script>
 </body>
 </html>
-JavaScript Structure
-main.js
-Initialize the framework and apply the desired topology:
+Components
+Layouts
+GridView Layout: Create grid-based layouts with customizable columns.
+Linear Layout: Arrange components in a linear fashion, either horizontally or vertically.
+Relative Layout: Position components relative to each other.
+Frame Layout: Stack components on top of each other.
+Constraint Layout: Define complex layouts with constraints.
+Organisms
+Organisms are complex UI components made up of multiple molecules and atoms. Examples include navigation bars, forms, and cards.
 
-javascript
-Copy code
-import { topologies } from './topologies.js';
-import eventManager from './eventManager.js';
+Molecules
+Molecules are reusable UI components made up of atoms. Examples include buttons and inputs grouped together.
 
-class LayoutFramework {
-    constructor(selector) {
-        this.app = document.querySelector(selector);
-    }
+Atoms
+Atoms are the basic building blocks of the UI, such as buttons, inputs, and labels.
 
-    applyTopology(topologyName) {
-        const topology = topologies[topologyName];
-        if (topology) {
-            topology.render(this.app);
-        } else {
-            console.error(`Topology ${topologyName} not found`);
-        }
-    }
-}
-
-// Example of usage
-document.addEventListener('DOMContentLoaded', () => {
-    const app = new LayoutFramework('#app');
-    app.applyTopology('homepage');
-
-    eventManager.on('buttonClick', data => {
-        console.log('Event received:', data);
-    });
-
-    eventManager.on('customButtonClick', data => {
-        console.log('Custom Button Event received:', data);
-    });
-});
-topologies.js
-Define the topologies, specifying the layout and components:
-
-javascript
-Copy code
-import { Container, Row, ColComponent } from './grid.js';
-import eventManager from './eventManager.js';
-import './componentRegistry.js'; // Ensure components are registered
-
-class Topology {
-    constructor(name) {
-        this.name = name;
-        this.structure = [];
-    }
-
-    Container({ containerClassName = '', rowClassName = '', layout = [], Col = {} }) {
-        const container = new Container({ className: containerClassName });
-        const row = new Row({ className: rowClassName });
-
-        const col = new ColComponent({ className: Col.className, layout: Col.layout || [] });
-
-        if (Col.layout) {
-            Col.layout.forEach(layoutType => {
-                col.addLayout(layoutType);
-            });
-        }
-
-        if (Col.organism) {
-            Col.organism.forEach(org => {
-                col.addComponentOrganisms(org.type, org);
-            });
-        }
-
-        if (Col.molecule) {
-            Col.molecule.forEach(mol => {
-                col.addComponentMolecules(mol.type, mol);
-            });
-        }
-
-        if (Col.atoms) {
-            Col.atoms.forEach(atom => {
-                col.addComponentAtoms(atom.type, atom);
-            });
-        }
-
-        row.addChild(col);
-        container.addChild(row);
-
-        this.structure.push(container);
-        return this;
-    }
-
-    render(parentElement) {
-        this.structure.forEach(component => {
-            if (component.render) {
-                parentElement.appendChild(component.render());
-            } else {
-                console.error('Component does not have a render method:', component);
-            }
-        });
-    }
-}
-
-// Example Topology
-export const topologies = {
-    homepage: new Topology('homepage')
-        .Container({
-            containerClassName: 'main-container',
-            rowClassName: 'main-row',
-            layout: ['relative'],
-            Col: {
-                className: 'md-4',
-                layout: ['some-layout'],
-                organism: [
-                    {
-                        type: 'navbar',
-                        items: [
-                            { text: 'Home', href: '#' },
-                            { text: 'About', href: '/about' }
-                        ]
-                    },
-                    {
-                        type: 'form',
-                        fields: [
-                            { name: 'username', label: 'Username', type: 'text' }
-                        ]
-                    }
-                ],
-                molecule: [
-                    {
-                        type: 'card',
-                        title: 'Welcome',
-                        body: 'This is the homepage',
-                        atoms: [
-                            {
-                                type: 'button',
-                                label: 'Click Me',
-                                className: 'btn-primary',
-                                onClick: () => {
-                                    console.log('Button clicked');
-                                    eventManager.emit('buttonClick', { message: 'Button was clicked' });
-                                }
-                            }
-                        ]
-                    }
-                ],
-                atoms: [
-                    {
-                        type: 'button',
-                        label: 'Click Me',
-                        className: 'btn-primary',
-                        onClick: () => {
-                            console.log('Button clicked');
-                            eventManager.emit('buttonClick', { message: 'Button was clicked' });
-                        }
-                    },
-                    {
-                        type: 'customButton',
-                        label: 'Custom Button',
-                        className: 'btn-secondary',
-                        onClick: () => {
-                            console.log('Custom Button clicked');
-                            eventManager.emit('customButtonClick', { message: 'Custom Button was clicked' });
-                        }
-                    }
-                ]
-            }
-        })
-};
-grid.js
-Define the basic grid components:
-
-javascript
-Copy code
-export class Container {
-    constructor({ className = '' }) {
-        this.className = className;
-        this.children = [];
-    }
-
-    addChild(child) {
-        if (child.render) {
-            this.children.push(child);
-        } else {
-            console.error('Child does not have a render method:', child);
-        }
-    }
-
-    render() {
-        const container = document.createElement('div');
-        container.className = this.className;
-        this.children.forEach(child => {
-            container.appendChild(child.render());
-        });
-        return container;
-    }
-}
-
-export class Row {
-    constructor({ className = '' }) {
-        this.className = className;
-        this.children = [];
-    }
-
-    addChild(child) {
-        if (child.render) {
-            this.children.push(child);
-        } else {
-            console.error('Child does not have a render method:', child);
-        }
-    }
-
-    render() {
-        const row = document.createElement('div');
-        row.className = this.className;
-        this.children.forEach(child => {
-            row.appendChild(child.render());
-        });
-        return row;
-    }
-}
-
-export class ColComponent {
-    constructor({ className = '', layout = [] }) {
-        this.className = className;
-        this.children = [];
-        this.layout = layout; // Store layout options
-    }
-
-    addChild(child) {
-        if (child.render) {
-            this.children.push(child);
-        } else {
-            console.error('Child does not have a render method:', child);
-        }
-    }
-
-    addLayout(layoutType) {
-        this.layout.push(layoutType);
-    }
-
-    render() {
-        const col = document.createElement('div');
-        col.className = this.className;
-
-        // Apply layout classes
-        this.layout.forEach(layoutType => {
-            col.classList.add(layoutType);
-        });
-
-        this.children.forEach(child => {
-            col.appendChild(child.render());
-        });
-        return col;
-    }
-}
-eventManager.js
-Define the event manager to handle custom events:
-
-javascript
-Copy code
-class EventManager {
-    constructor() {
-        this.events = {};
-    }
-
-    on(event, listener) {
-        if (!this.events[event]) {
-            this.events[event] = [];
-        }
-        this.events[event].push(listener);
-    }
-
-    emit(event, data) {
-        if (this.events[event]) {
-            this.events[event].forEach(listener => listener(data));
-        }
-    }
-}
-
-const eventManager = new EventManager();
-export default eventManager;
 Custom Components
-To allow developers to integrate custom components, ensure that they follow the structure and implement the render method. Register custom components in componentRegistry.js.
+To integrate custom components, simply define them and add them to the framework like any other component:
 
-Conclusion
-The Layout Framework is designed to simplify the process of building complex layouts while maintaining flexibility and modularity. By following the provided structure and guidelines, developers can easily integrate and customize components to create dynamic and responsive web applications.
+javascript
+Copy code
+app.addComponent('customButton', {
+    render: function() {
+        const button = document.createElement('button');
+        button.className = 'btn-secondary';
+        button.innerText = 'Custom Button';
+        return button;
+    }
+});
+Event Manager
+The framework includes an event manager to handle and manage events efficiently. This allows for better organization and maintenance of event listeners.
+
+Contribution
+We welcome contributions from the community. Feel free to fork the repository and submit pull requests.
+
+License
+This project is licensed under the MIT License.
